@@ -286,11 +286,11 @@ class PciDevice:
         if 'Irq' in flags and PciFillFlag.Irq in self.known_fields:
             info.append(f', irq={self.irq}')
         if 'Bases' in flags and PciFillFlag.Bases in self.known_fields:
-            info.append(f', bases={list(hex(addr) for addr in self.base_addr)}')
+            info.append(f', bases=[{", ".join(list(hex(addr) for addr in self.base_addr))}]')
         if 'RomBase' in flags and PciFillFlag.RomBase in self.known_fields:
             info.append(f', rom_base={hex(self.rom_base_addr)}')
         if 'Sizes' in flags and PciFillFlag.Sizes in self.known_fields:
-            info.append(f', size={list(hex(size) for addr in self.sizes)}')
+            info.append(f', size=[{", ".join(list(hex(size) for addr in self.sizes))}]')
             info.append(f', rom_size={hex(self.rom_size)}')
         if 'Class' in flags and PciFillFlag.Class in self.known_fields:
             info.append(f', device_class={self.device_class_name}')
